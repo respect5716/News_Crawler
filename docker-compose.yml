@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.3"
 services:
     app:
         build: .
@@ -7,6 +7,5 @@ services:
         volumes:
             - .:/app
         ports:
-            - 80:80
             - 8888:8888
         container_name: news
