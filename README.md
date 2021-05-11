@@ -29,3 +29,11 @@ DROPBOX_TOKEN=abcde # dropbox access token
 CONFIG_DIR=/app/config
 ```
 
+
+
+3. Build docker image
+
+```
+sudo docker-compose up -d
+```
+

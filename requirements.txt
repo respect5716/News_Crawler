@@ -8,4 +8,4 @@ fastapi
 uvicorn
 fpdf
 dropbox
-scheduler
+schedule
