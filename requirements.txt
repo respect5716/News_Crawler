@@ -1,5 +1,4 @@
 jupyter
-pororo
 ray
 newspaper3k
 pandas
