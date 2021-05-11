@@ -19,19 +19,24 @@ cd News_Crawler
 
 
 
-2. Make .env file
+2. Make config file
 
 ```
-vim .env
+vim config.json
 
-TIME=19:00 # time to crawl data
-DROPBOX_TOKEN=abcde # dropbox access token
-CONFIG_DIR=/app/config
+{
+	"TIME": "20:00",
+	"DROPBOX_TOKEN": "{dropbox access token}",
+	"QUERY": {
+		"domain1": ["query1", "query2", "query3"],
+		"domain2": ["query1", "query2", "query3"]
+	}
+}
 ```
 
 
 
-3. Build docker image
+3. Build and run docker image
 
 ```
 sudo docker-compose up -d
