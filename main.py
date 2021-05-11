@@ -6,14 +6,15 @@ import schedule
 from utils import *
 from pdf import PDF
 
+CONFIG = read_config()
 
 def main():
     ray.init()
     date = get_date()
-    query = read_query()
-    dbx = dropbox.Dropbox(os.environ['DROPBOX_TOKEN'])
     
-    for key, value in query.items():
+    dbx = dropbox.Dropbox(CONFIG['DROPBOX_TOKEN'])
+    
+    for key, value in CONFIG['QUERY'].items():
         data = collect_news(value, date)
         pdf = PDF(f'{date}_{key}')
         pdf.write(data)
@@ -23,7 +24,7 @@ def main():
         os.remove(f'{date}_{key}.pdf')
 
 if __name__ == '__main__':
-    schedule.every().day.at(os.environ['TIME']).do(main)
+    schedule.every().day.at(CONFIG['TIME']).do(main)
     while True:
         schedule.run_pending()
         time.sleep(10)

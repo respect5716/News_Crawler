@@ -9,8 +9,8 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from newspaper import Article
 
-def read_query():
-    with open(os.path.join(os.environ['CONFIG_DIR'], 'query.json'), 'r') as f:
+def read_config():
+    with open('query.json'), 'r') as f:
         query = json.load(f)
     return query
 
