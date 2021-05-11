@@ -1,3 +1,4 @@
 ntb/*
 */*.pkl
 config.json
+__pycache__/*

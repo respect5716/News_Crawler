@@ -5,8 +5,8 @@ class PDF(FPDF):
     def __init__(self, key):
         super(PDF, self).__init__()
         self.key = key
-        self.add_font('kor', '', 'font/NanumBarunGothic.ttf'), uni=True)
-        self.add_font('kor', 'B', 'font/NanumBarunGothicBold.ttf'), uni=True)
+        self.add_font('kor', '', 'font/NanumBarunGothic.ttf', uni=True)
+        self.add_font('kor', 'B', 'font/NanumBarunGothicBold.ttf', uni=True)
     
     def header(self):
         self.set_font('kor', 'B', 11)

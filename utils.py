@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 from newspaper import Article
 
 def read_config():
-    with open('query.json'), 'r') as f:
+    with open('config.json', 'r') as f:
         query = json.load(f)
     return query
 
