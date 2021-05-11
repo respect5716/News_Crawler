@@ -1,0 +1,11 @@
+jupyter
+pororo
+ray
+newspaper3k
+pandas
+konlpy
+fastapi
+uvicorn
+fpdf
+dropbox
+scheduler
