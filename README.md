@@ -10,16 +10,7 @@
 
 ## Execute
 
-1. Clone repository
-
-```
-git clone https://github.com/respect5716/News_Crawler.git
-cd News_Crawler
-```
-
-
-
-2. Make config file
+1. Make config file
 
 ```
 vim config.json
@@ -36,9 +27,9 @@ vim config.json
 
 
 
-3. Build and run docker image
+2. Build docker container
 
 ```
-sudo docker-compose up -d
+sudo docker run -d respect5716/news-crawler:1
 ```
 

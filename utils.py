@@ -59,21 +59,6 @@ def collect_meta(query, date, maxlen=100):
     return meta
 
 
-def collect_news(query_set, date):
-    data = []
-    for query in query_set:
-        _data = collect_meta(query, date)
-        data.append(_data)
-    data = pd.concat(data, ignore_index=True)
-    
-    data['text'] = ray.get([collect_text.remote(url) for url in data['url']])
-    data['text'] = ray.get([clean_text.remote(text) for text in data['text']])
-    data = data.dropna()
-    data = data.loc[data['text'].apply(len).between(100, 1000)]
-    data = data.reset_index(drop=True)
-    return data
-
-
 @ray.remote
 def collect_text(url):
     try:
@@ -105,6 +90,20 @@ def clean_text(text):
         text = '\n\n'.join(text)
     return text
 
+
+def collect_news(query_set, date):
+    data = []
+    for query in query_set:
+        _data = collect_meta(query, date)
+        data.append(_data)
+    data = pd.concat(data, ignore_index=True)
+    
+    data['text'] = ray.get([collect_text.remote(url) for url in data['url']])
+    data['text'] = ray.get([clean_text.remote(text) for text in data['text']])
+    data = data.dropna()
+    data = data.loc[data['text'].apply(len).between(100, 1000)]
+    data = data.reset_index(drop=True)
+    return data
 
 
     # @ray.remote
