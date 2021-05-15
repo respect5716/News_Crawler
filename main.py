@@ -24,10 +24,10 @@ def main():
         os.remove(f'{date}_{key}.pdf')
 
 if __name__ == '__main__':
-    if CONFIG['TIME'] == 'now':
+    if os.environ['TIME'] == 'now':
         main()
     else:
-        schedule.every().day.at(CONFIG['TIME']).do(main)
+        schedule.every().day.at(os.environ['TIME']).do(main)
         while True:
             schedule.run_pending()
             time.sleep(10)
