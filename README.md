@@ -35,3 +35,14 @@ Set "Time": "now" if you want to collect news immediately.
 sudo docker run -d --name news respect5716/news-crawler:1
 ```
 
+
+
+* 개발용 container
+
+  
+
+```
+sudo docker build -t news-image -f DevDockerfile .
+sudo docker run --name news -v ${PWD}:/app news-image
+```
+

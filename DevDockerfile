@@ -1,0 +1,15 @@
+# For development
+FROM python:3.7
+
+# Build essentials
+RUN apt-get update
+
+VOLUME ["/app"]
+WORKDIR /app
+
+
+# Build app
+COPY requirements.txt requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD ["python", "main.py"]
