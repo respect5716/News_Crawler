@@ -13,5 +13,4 @@ WORKDIR News_Crawler
 COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY config.json config.json
 CMD ["python", "main.py"]
