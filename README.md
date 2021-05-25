@@ -32,7 +32,7 @@ Set "Time": "now" if you want to collect news immediately.
 2. Build docker container
 
 ```
-sudo docker run -d --name news respect5716/news-crawler:1
+sudo docker run -d --name news respect5716/news-crawler:2
 ```
 
 
