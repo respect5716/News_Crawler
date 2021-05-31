@@ -6,12 +6,11 @@ import schedule
 from utils import *
 from pdf import PDF
 
+ray.init()
 CONFIG = read_config()
 
 def main():
-    ray.init()
     date = get_date()
-    
     dbx = dropbox.Dropbox(CONFIG['DROPBOX_TOKEN'])
     
     for key, value in CONFIG['QUERY'].items():
